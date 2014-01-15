@@ -1,0 +1,71 @@
+/*
+ * jQuery File Upload Plugin JS Example 8.8.2
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+/*jslint nomen: true, regexp: true */
+/*global $, window, blueimp */
+
+$(function () {
+    'use strict';
+
+    // Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload({
+        // Uncomment the following to send cross-domain cookies:
+        //xhrFields: {withCredentials: true},
+        url: 'accommimages'
+    });
+
+    // Enable iframe cross-domain access via redirect option:
+    $('#fileupload').fileupload(
+        'option',
+        'redirect',
+        window.location.href.replace(
+            /\/[^\/]*$/,
+            '/cors/result.html?%s'
+        )
+    );
+$('#fileupload').bind('fileuploadalways', function (e, data) {
+    
+    data = jQuery.parseJSON(data._response.jqXHR.responseText)
+    data = data.files[0];
+    console.log(data);
+    var templateData = {
+     filename : data.name,
+     imageURL : data.url,
+     thumbnailUrl : data.thumbnailUrl
+
+      };
+      $('#gridHolder').append(tmpl("tmpl-demo", templateData));
+    
+
+
+})
+    if (window.location.hostname === 'blueimp.github.io') {
+        // Demo settings:
+     
+    } else {
+        // Load existing files:
+        $('#fileupload').addClass('fileupload-processing');
+        $.ajax({
+            // Uncomment the following to send cross-domain cookies:
+            //xhrFields: {withCredentials: true},
+            url: $('#fileupload').fileupload('option', 'url'),
+            dataType: 'json',
+            context: $('#fileupload')[0]
+        }).always(function () {
+            $(this).removeClass('fileupload-processing');
+        }).done(function (result) {
+
+            $(this).fileupload('option', 'done')
+                .call(this, null, {result: ''});
+        });
+    }
+
+});

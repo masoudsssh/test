@@ -100,7 +100,7 @@
         </div>
     </header>
 	
-	@include('layouts.caller.sideMenuCaller')
+	<!-- include('layouts.caller.sideMenuCaller') -->
 	
     <!-- main content -->
     <div id="contentwrapper">

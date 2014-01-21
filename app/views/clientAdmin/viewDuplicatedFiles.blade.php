@@ -56,7 +56,7 @@
 												
 												<td>{{$file->updated_at}}</td>
 												<td style="text-align:center">
-													<button class="btn btn-default" id="confirmUploadedFile" data-batchid="{{$file->batchID}}">
+													<button class="btn btn-default confirmUploadedFile" data-batchid="{{$file->batchID}}">
 														<i class="icon-check" style="margin-top: 1px;"></i> View
 													</button>
 												</td>
@@ -83,7 +83,7 @@
 
 	$(document).ready(function(){
 
-		$("#confirmUploadedFile").on("click", function(){
+		$(".confirmUploadedFile").on("click", function(){
 			batchID = $(this).data('batchid');
 			//alert(batchID);
 			$(location).attr('href','/user/viewduplicatedfile/'+batchID);

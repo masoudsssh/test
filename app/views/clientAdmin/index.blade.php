@@ -116,14 +116,40 @@
 		</div>
 	</div>
 </div>
+<!-- confirm modal -->
+<div class="hidden">
+<div id="dialog-uploadedconfirm" title="">
+	<p >
+		<div class="pull-left" style="margin-right: 12px;">
+				<span class="ui-icon ui-icon-alert " style="float: left; margin: 0 0px 0 8px;"></span>
+		</div>
+		Are you sure?
+	</p>
+	<img src="/img/loaderSmall.gif" style="display:none;" class="deleteLoader">
+</div>
+</div>
+<!-- end of confirm modal -->
+
 <script type="text/javascript">
 
 	$(document).ready(function(){
 
 		$(".confirmUploadedFile").on("click", function(){
 			batchID = $(this).data('batchid');
-			//alert(batchID);
-			$(location).attr('href','/user/confirmuploadedfile/'+batchID);
+			$('#dialog-uploadedconfirm').dialog({
+				title:'<span class="pull-left">Uploaded Confirm</span>',
+				resizable: false,
+				modal:true,
+				buttons: {
+					"No": function() {
+						$( this ).dialog( "close" );
+					},
+					'Yes': function() {
+						//$('.deleteLoader').show();
+					$(location).attr('href','/user/confirmuploadedfile/'+batchID);
+					}
+				}}
+			);
 		});
 
 	}); 

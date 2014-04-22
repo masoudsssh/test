@@ -33,6 +33,7 @@ class CallerController extends BaseController {
 
 	public function editUploadedRecord($id){
 		$file = CsdbCustomerMonthYearRaw::where('id', '=' , $id)->get()->first();
+		$originalFile = CsdbCustomerMonthYearOrginal::where('id', '=' , $id)->get()->first();
 
 		if( $file->open_at=="" ){
 		CsdbCustomerMonthYearRaw::where('id', $id )
@@ -44,7 +45,7 @@ class CallerController extends BaseController {
 		$batchYear = CsdbCustomerMonthYearRaw::where('batchID',$file->batchID)->pluck('batchYear');
 		$batchMonth = CsdbCustomerMonthYearRaw::where('batchID',$file->batchID)->pluck('batchMonth');
 		$batchWeek = CsdbCustomerMonthYearRaw::where('batchID',$file->batchID)->pluck('batchWeek');
-		$this->layout->content = View::make('caller.editUploadedRecord', array('file'=> $file, 'batchName'=>$batchName, 'batchYear'=>$batchYear, 'batchMonth'=>$batchMonth, 'batchWeek'=>$batchWeek));		
+		$this->layout->content = View::make('caller.editUploadedRecord', array('file'=> $file, 'originalFile'=>$originalFile, 'batchName'=>$batchName, 'batchYear'=>$batchYear, 'batchMonth'=>$batchMonth, 'batchWeek'=>$batchWeek));		
 	}
 
 	public function storeEditUploadedRecord(){

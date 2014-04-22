@@ -47,6 +47,8 @@
 <script src="/lib/list_js/list.min.js"></script>
 <script src="/lib/list_js/plugins/paging/list.paging.min.js"></script>
 <!-- dashboard functions -->
+<script type="text/javascript" src="/js/jquery.timer.js"></script>
+<!-- timer functions -->
 
 
 @section('scriptFiles')

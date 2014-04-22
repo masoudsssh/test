@@ -63,9 +63,12 @@ if( Session::has('msgError') or isset($msgError)){
 											<tr class="cleansing">
 												<th style="width: 33.3%;">Title</th>
 												<td> <input type="text" name="title" value="{{$file->title}}" /> </td>
+												<td>{{$originalFile->title}}</td>
 											</tr>
 											<tr class="cleansing">
-												<th style="">customer Name </th> <td> <lable name="customerName">{{$file->customerName  }}</lable></td>
+												<th style="">customer Name </th> 
+												<td> <lable name="customerName">{{$file->customerName  }}</lable></td>
+												<td></td>
 											</tr>
 											<tr class="cleansing">
 												<th style="">customer ID </th> <td> <lable name="customerID"> {{$file->customerID  }} </lable></td>

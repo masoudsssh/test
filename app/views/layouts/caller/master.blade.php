@@ -19,13 +19,19 @@
 <body class="">
 <div id="loading_layer" style="display:none"><img src="/img/ajax_loader.gif" alt="" /></div>
 
-<div id="maincontainer" class="clearfix">
+<div  class="clearfix"> <!-- id="maincontainer" -->
     <!-- header -->
     <header>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid"> <!-- {{URL::route('loginPost')}} -->
                     <a class="brand" href="#"><i class="icon-home icon-white"></i> Customer Service DB</a>
+
+
+                    <span id="stopwatch" class="brand">00:00</span>
+
+
+
                     <ul class="nav user_menu pull-right">
                         <li class="hidden-phone hidden-tablet">
                             <div class="nb_boxes clearfix">
@@ -104,7 +110,7 @@
 	
     <!-- main content -->
     <div id="contentwrapper">
-        <div class="main_content">
+        <div class="main_content" style="margin-left:0px">
 
             @include('layouts.partials.breadcrumb')
 
@@ -114,7 +120,6 @@
 
         </div>
     </div>
-
   
 
 </div>

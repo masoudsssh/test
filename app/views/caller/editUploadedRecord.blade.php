@@ -68,13 +68,17 @@ if( Session::has('msgError') or isset($msgError)){
 											<tr class="cleansing">
 												<th style="">customer Name </th> 
 												<td> <lable name="customerName">{{$file->customerName  }}</lable></td>
-												<td></td>
+												<td>{{$originalFile->customerName}}</td>
 											</tr>
 											<tr class="cleansing">
-												<th style="">customer ID </th> <td> <lable name="customerID"> {{$file->customerID  }} </lable></td>
+												<th style="">customer ID </th> 
+												<td> <lable name="customerID"> {{$file->customerID  }} </lable></td>
+												<td>{{$originalFile->customerID}}</td>
 											</tr>
 											<tr class="cleansing">
-												<th style="">customer Type </th> <td> <lable name="customerType">{{$file->customerType }}</lable></td>
+												<th style="">customer Type </th>
+												<td> <lable name="customerType">{{$file->customerType }}</lable></td>
+												<td>{{$originalFile->customerType}}</td>
 											</tr>
 											<!--
 												<tr class="cleansing">
@@ -155,6 +159,8 @@ if( Session::has('msgError') or isset($msgError)){
 													?>
 													<input type="text" id="industry1" {{ (strpos($file->industry,'other') !== false)? 'style="display:inline-block" name="industry"': 'style="display:none" name="industry1"' }} placeholder="Please specify" value="<?php echo (strpos($file->industry,'other') !== false) ? $industry[0] : '' ?>" />
 												</td>
+												<td>{{$originalFile->industry}}</td>
+
 											</tr>
 											<tr class="cleansing">
 												<th style="">occupation </th> 
@@ -180,18 +186,30 @@ if( Session::has('msgError') or isset($msgError)){
 													?>
 													<input type="text" id="occupation1" {{ (strpos($file->occupation,'other') !== false)? 'style="display:inline-block" name="occupation"': 'style="display:none" name="occupation1"' }} placeholder="Please specify" value="<?php echo (strpos($file->occupation,'other') !== false) ? $occupation[0] : '' ?>" />
 												</td>
+												<td>{{$originalFile->occupation}}</td>
 											</tr>
 											<tr class="cleansing">
-												<th style="">address 1 </th> <td> <input type="text" name="address1" value="{{$file->address1  }} " /></td>
+												<th style="">address 1 </th> 
+												<td> <input type="text" name="address1" value="{{$file->address1  }} " /></td>
+												<td>{{$originalFile->address1}}</td>
 											</tr>
 											<tr class="cleansing">
-												<th style="">address 2 </th> <td> <input type="text" name="address2" value="{{$file->address2  }} " /></td>
+												<th style="">address 2 </th> 
+												<td> <input type="text" name="address2" value="{{$file->address2  }} " /></td>
+												<td>{{$originalFile->address2}}</td>
 											</tr>
+
 											<tr class="cleansing">					
-												<th style="">address 3 </th><td> <input type="text" name="address3" value="{{$file->address3 }} " /></td>
+												<th style="">address 3 </th>
+												<td> <input type="text" name="address3" value="{{$file->address3 }} " /></td>
+												<td>{{$originalFile->address3}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">post code </th><td> <input type="text" name="postcode" value="{{$file->postcode  }} " /></td>
+												<th style="">post code </th>
+												<td> <input type="text" name="postcode" value="{{$file->postcode  }} " /></td>
+												<td>{{$originalFile->postcode}}</td>
+
 											</tr>
 											<!--
 												<tr class="cleansing">
@@ -199,7 +217,10 @@ if( Session::has('msgError') or isset($msgError)){
 												</tr>
 											-->
 											<tr class="cleansing">
-												<th style="">city </th><td> <input type="text" name="city" value="{{$file->city  }} " /></td>
+												<th style="">city </th>
+												<td> <input type="text" name="city" value="{{$file->city  }} " /></td>
+												<td>{{$originalFile->city}}</td>
+
 											</tr>
 											<!--
 												<tr class="cleansing">
@@ -207,25 +228,46 @@ if( Session::has('msgError') or isset($msgError)){
 												</tr>
 											-->
 											<tr class="cleansing">
-												<th style="">state </th><td> <input type="text" name="state" value="{{$file->state  }} " /></td>
+												<th style="">state </th>
+												<td> <input type="text" name="state" value="{{$file->state  }} " /></td>
+												<td>{{$originalFile->state}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">country </th><td> <input type="text" name="country" value="{{$file->country  }} " /></td>
+												<th style="">country </th>
+												<td> <input type="text" name="country" value="{{$file->country  }} " /></td>
+												<td>{{$originalFile->country}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">tel No </th> <td> <input type="text" name="telNo" value="{{$file->telNo  }} " /></td>
+												<th style="">tel No </th> 
+												<td> <input type="text" name="telNo" value="{{$file->telNo  }} " /></td>
+												<td>{{$originalFile->telNo}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">mobile No </th> <td> <input type="text" name="mobileNo" value="{{$file->mobileNo  }} " /></td>
+												<th style="">mobile No </th> 
+												<td> <input type="text" name="mobileNo" value="{{$file->mobileNo  }} " /></td>
+												<td>{{$originalFile->mobileNo}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">fax No </th> <td> <input type="text" name="faxNo" value="{{$file->faxNo  }} " /></td>
+												<th style="">fax No </th> 
+												<td> <input type="text" name="faxNo" value="{{$file->faxNo  }} " /></td>
+												<td>{{$originalFile->faxNo}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">email </th> <td> <input type="text" name="email" value="{{$file->email  }} " /></td>
+												<th style="">email </th> 
+												<td> <input type="text" name="email" value="{{$file->email  }} " /></td>
+												<td>{{$originalFile->email}}</td>
+
 											</tr>
 											<tr class="cleansing">
-												<th style="">contact Person </th> <td> <input type="text" name="contactPerson" value="{{$file->contactPerson  }} " /></td>
+												<th style="">contact Person </th> 
+												<td> <input type="text" name="contactPerson" value="{{$file->contactPerson  }} " /></td>
+												<td>{{$originalFile->contactPerson}}</td>
+
 											</tr>
 											<tr class="cleansing">
 												<th style="">personal Income </th> 
@@ -247,6 +289,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="ABOVE RM 30,000" {{ ($file->personalIncome=='ABOVE RM 30,000')? 'selected="selected"': '' }} >ABOVE RM 30,000</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->personalIncome}}</td>
 											</tr>
 											<!--
 												<tr class="cleansing">
@@ -263,7 +306,10 @@ if( Session::has('msgError') or isset($msgError)){
 												</tr>
 											-->
 											<tr class="cleansing">
-												<th style="">reg No </th> <td> <lable name="regNo"> {{$file->regNo  }} </lable></td>
+												<th style="">reg No </th> 
+												<td> <lable name="regNo"> {{$file->regNo  }} </lable></td>
+												<td>{{$originalFile->reNo}}</td>
+
 											</tr>
 											<!--
 												<tr class="cleansing">
@@ -368,6 +414,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n" {{($file->emailNotification=='n')? 'selected="selected"': '' }}  >N</option>
 													</select>
 												</td>
+												<td>{{$originalFile->emailNotification}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">postal Notification </th> 
@@ -377,6 +424,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n" {{($file->postalNotification=='n')? 'selected="selected"': '' }}  >N</option>
 													</select> 
 												</td>
+												<td>{{$originalFile->postalNotification}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">phone Notification </th> 
@@ -386,6 +434,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n" {{($file->phoneNotification=='n')? 'selected="selected"': '' }}  >N</option>
 													</select> 													
 												</td>
+												<td>{{$originalFile->phoneNotification}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">sms Notification </th> 
@@ -395,6 +444,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n" {{($file->smsNotification=='n')? 'selected="selected"': '' }}  >N</option>
 													</select> 
 												</td>
+												<td>{{$originalFile->smsNotification}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">fax Notification </th> 
@@ -404,6 +454,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n" {{($file->faxNotification=='n')? 'selected="selected"': '' }}  >N</option>
 													</select> 
 												</td>
+												<td>{{$originalFile->faxNotification}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">not Interested </th> 
@@ -413,6 +464,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n" {{($file->notInterested=='n')? 'selected="selected"': '' }}  >N</option>
 													</select> 
 												</td>
+												<td>{{$originalFile->notInterested}}</td>
 											</tr>
 											
 
@@ -430,6 +482,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->ads_articlesInNewspaperOrMagazines=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select> 
 												</td>
+												<td>{{$originalFile->ads_articlesInNewspaperOrMagazines}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">ads In Tv/radio </th>  
@@ -439,6 +493,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->adsInTv_radio=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select> 
 												</td>
+												<td>{{$originalFile->adsInTv_radio}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">ads On Billboard </th>  
@@ -448,6 +503,7 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->adsOnBillboard=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select> 
 												</td>
+												<td>{{$originalFile->adsOnBillboard}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">internet Websites Blogs </th>  
@@ -457,6 +513,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->internetWebsitesBlogs=='yes')? 'selected="selected"': '' }} >Yes</option>
 													</select>
 												</td>
+												<td>{{$originalFile->internetWebsitesBlogs}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">friends & Family </th>  
@@ -466,6 +524,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->friendsFamily=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+											    <td>{{$originalFile->friendsFamily}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">show room Visit </th> 
@@ -475,6 +535,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->showroomVisit=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->showroomVisit}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">road show Events </th>  
@@ -484,21 +546,26 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->roadshowEvents=='yes')? 'selected="selected"': '' }} >Yes</option>
 													</select>
 												</td>
+												<td>{{$originalFile->roadshowEvents}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">others </th>  
 												<td> 
 													<input type="text" name="others" />
 												</td>
+												<td>{{$originalFile->others}}</td>
 											</tr>
 											<tr class="survey">
 												<th style="">N/A </th>  
 												<td> 
 													<select name="na">
-														<option value="" {{($file->na1=='')? 'selected="selected"': '' }}  > </option>
+														<option value="" {{($file->na=='')? 'selected="selected"': '' }}  > </option>
 														<option value="yes" {{($file->na=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->na}}</td>
+
 											</tr>
 
 											<tr class="survey" style="height: 50px;">
@@ -515,6 +582,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->design=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->design}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">performance </th>  
@@ -524,6 +593,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->performance=='yes')? 'selected="selected"': '' }} >Yes</option>
 													</select>
 												</td>
+												<td>{{$originalFile->performance}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">price </th>  
@@ -533,6 +604,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->price=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->price}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">brand Image </th>  
@@ -542,6 +615,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->brandImage=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->brandImage}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">promotion </th>  
@@ -551,6 +626,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->promotion=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->promotion}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">vehicle Accessories </th>  
@@ -560,6 +637,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->vehicleAccessories=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->vehicleAccessories}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">vehicle Reliability </th>  
@@ -569,6 +648,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->vehicleReliability=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->vehicleReliability}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">after Sales Service </th>  
@@ -578,6 +659,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->afterSalesService=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->afterSalesService}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">mitsubishi Repeat Customer </th>  
@@ -587,12 +670,16 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->mitsubishiRepeatCustomer=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->mitsubishiRepeatCustomer}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">others </th>  
 												<td> 
 													<input type="text" name="others1" />
 												</td>
+												<td>{{$originalFile->others1}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">N/A </th>  
@@ -602,6 +689,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="yes" {{($file->na1=='yes')? 'selected="selected"': '' }} >Yes</option>														
 													</select>
 												</td>
+												<td>{{$originalFile->na1}}</td>
+
 											</tr>				
 
 											<tr class="survey" style="height: 50px;">
@@ -618,6 +707,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="n/a" {{($file->maritalStatus=='n/a')? 'selected="selected"': '' }} >N/A</option>
 													</select> 
 												</td>
+												<td>{{$originalFile->maritalStatus}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">compare With Other Brands </th>  
@@ -628,12 +719,20 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="" {{($file->compareWithOtherBrands=='')? 'selected="selected"': '' }}  ></option>
 													</select>
 												</td>
+												<td>{{$originalFile->compareWithOtherBrands}}</td>
+
 											</tr>
 											<tr class="survey">
-												<th style="">brand Name </th>  <td> <input type="text" name="brandName" value="{{$file->brandName  }} " /></td>
+												<th style="">brand Name </th> 
+												 <td> <input type="text" name="brandName" value="{{$file->brandName  }} " /></td>
+												 <td>{{$originalFile->brandName}}</td>
+
 											</tr>
 											<tr class="survey">
-												<th style="">model Name </th>  <td> <input type="text" name="modelName" value="{{$file->modelName  }} " /></td>
+												<th style="">model Name </th>  
+												<td> <input type="text" name="modelName" value="{{$file->modelName  }} " /></td>
+												 <td>{{$originalFile->modelName}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">nature Of Purchase </th>  
@@ -646,7 +745,9 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="Additional vehicle (not owning any Mitsubishi vehicle)" {{($file->natureOfPurchase=='Additional vehicle (not owning any Mitsubishi vehicle)')? 'selected="selected"': '' }}     >Additional vehicle (not owning any Mitsubishi vehicle)</option>
 														<option value="N/A" {{($file->natureOfPurchase=='N/A')? 'selected="selected"': '' }}  >N/A</option>
 													</select>
-												</td>		
+												</td>	
+												 <td>{{$originalFile->natureOfPurchase}}</td>
+	
 											</tr>
 											<tr class="survey">
 												<th style="">no Of Years Use For Previous Car </th>  
@@ -662,6 +763,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<option value="N/A"  {{($file->noOfYearsUseForPreviousCar=='N/A')? 'selected="selected"': '' }}  >N/A</option>
 													</select>
 												</td>
+												<td>{{$originalFile->noOfYearsUseForPreviousCar}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">model Name Previous Car </th>  
@@ -692,6 +795,8 @@ if( Session::has('msgError') or isset($msgError)){
 													?>
 													<input type="text" id="modelNamePreviousCar1" {{ (strpos($file->modelNamePreviousCar,'other') !== false)? 'style="display:inline-block" name="modelNamePreviousCar"': 'style="display:none" name="modelNamePreviousCar1"' }} placeholder="Please specify" value="<?php echo (strpos($file->modelNamePreviousCar,'other') !== false) ? $modelNamePreviousCar[0] : '' ?>" />
 												</td>
+												<td>{{$originalFile->modelNamePreviousCar}}</td>
+
 											</tr>
 											<tr class="survey">
 												<th style="">cargo Usage Applicable For Triton Model </th>  
@@ -711,6 +816,8 @@ if( Session::has('msgError') or isset($msgError)){
 														<?php } ?>
 													</select>
 												</td>
+												<td>{{$originalFile->cargoUsageApplicableForTritonModel}}</td>
+
 											</tr>
 
 											

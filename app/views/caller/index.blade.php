@@ -1,5 +1,7 @@
 @section('content')
-
+<style>
+	a[title='New Messages'], #stopwatch{ display:none; }
+</style>
 <div class="row-fluid">
 	<div class="span12">
 		<div class="row-fluid">

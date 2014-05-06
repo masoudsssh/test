@@ -25,7 +25,7 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid"> <!-- {{URL::route('loginPost')}} -->
-                    <a class="brand" href="#"><i class="icon-home icon-white"></i> Customer Service DB</a>
+                    <a class="brand" href="/user/caller/index"><i class="icon-home icon-white"></i> Customer Service DB</a>
 
 
                     <span id="stopwatch" class="brand">00:00</span>
@@ -43,7 +43,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform:capitalize;">{{ Sentry::getUser()->getUserFirstName() }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">My Profile</a></li>
+                                <li><a href="{{URL::route('callerProfile', Sentry::getUser()->id )}}">My Profile</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{URL::route('logout')}}">Logout</a></li>
                             </ul>

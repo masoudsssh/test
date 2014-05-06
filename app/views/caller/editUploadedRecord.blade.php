@@ -16,6 +16,7 @@
 	background-color:#f5f5f5;
 }
 .ssi, .survey {display:none;}
+a[title='New Messages']{ display:none; }
 </style>
 
 <?php 

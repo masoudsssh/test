@@ -25,20 +25,20 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid"> <!-- {{URL::route('loginPost')}} -->
-                    <a class="brand" href="#"><i class="icon-home icon-white"></i> Customer Service DB</a>
+                    <a class="brand" href="/user/admin"><i class="icon-home icon-white"></i> Customer Service DB</a>
                     <ul class="nav user_menu pull-right">
-                        <li class="hidden-phone hidden-tablet">
+                       <!--  <li class="hidden-phone hidden-tablet">
                             <div class="nb_boxes clearfix">
                                 <a data-toggle="modal" data-backdrop="static" href="#myMail" class="label ttip_b" title="New Messages">25 <i class="splashy-mail_light"></i></a>
                                 <a data-toggle="modal" data-backdrop="static" href="#myTasks" class="label ttip_b" title="Pending Files">10 <i class="splashy-calendar_week"></i></a>
                             </div>
-                        </li>
+                        </li> -->
                         
                         <li class="divider-vertical hidden-phone hidden-tablet"></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform:capitalize;">{{ Sentry::getUser()->getUserFirstName() }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">My Profile</a></li>
+                                <li><a href="{{URL::route('Profile', Sentry::getUser()->id )}}">My Profile</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{URL::route('logout')}}">Logout</a></li>
                             </ul>
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal hide fade" id="myMail">
+       <!--  <div class="modal hide fade" id="myMail">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">×</button>
                 <h3 >New Messages</h3>
@@ -151,7 +151,7 @@
             <div class="modal-footer">
                 <a href="javascript:void(0)" class="btn">Go to task manager</a>
             </div>
-        </div>
+        </div> -->
     </header>
 	
 	@include('layouts.clientAdmin.sideMenuClientAdmin')

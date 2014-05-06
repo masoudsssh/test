@@ -15,6 +15,8 @@
 .tab:hover{
 	background-color:#f5f5f5;
 }
+a[title='New Messages'], #stopwatch{ display:none; }
+
 </style>
 
 <?php 

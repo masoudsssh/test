@@ -46,5 +46,9 @@ route::group(array('prefix' => 'user','before'=>'auth|admin'),function(){
 	Route::get('viewExportFile',array('as' => 'viewExportFile','uses'=>'ClientController@viewExportFile'));
 	Route::get('exportFile/{id}',array('as' => 'exportFile','uses'=>'ClientController@exportFile'))->where('id', '[0-9]+');
 
+	Route::post('edituploadedrecordByAdmin',array('as' => 'storeEditUploadedRecordByAdmin','uses'=>'ClientController@storeEditUploadedRecord'));
+
+	Route::get('profile/{id}',array('as' => 'Profile','uses'=>'ClientController@profile'))->where('id', '[0-9]+');
+	Route::post('storeprofile',array('as' => 'storeProfile','uses'=>'ClientController@storeProfile'));
 });
 

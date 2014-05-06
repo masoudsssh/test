@@ -31,16 +31,15 @@ class CallerController extends BaseController {
 		$this->layout->content = View::make('caller.viewMonthYearRecords', array('csdbCustomerMonthYearRaw'=> $CsdbCustomerMonthYearRaw, 'batchName'=>$batchName, 'batchYear'=>$batchYear, 'batchMonth'=>$batchMonth, 'batchWeek'=>$batchWeek));		
 	}
 
-	public function editUploadedRecord($id){
+	public function editUploadedRecord($id){		
+
 		$file = CsdbCustomerMonthYearRaw::where('id', '=' , $id)->get()->first();
 		$originalFile = CsdbCustomerMonthYearOrginal::where('id', '=' , $id)->get()->first();
-
-		if( $file->open_at=="" ){
-		CsdbCustomerMonthYearRaw::where('id', $id )
-			      ->update( array(   'open_at' => date("Y-m-d H:i:s") ));
+		
+		if($file->close_at==""){
+			CsdbCustomerMonthYearRaw::where('id', $id)->update(array('open_at' => date("Y-m-d H:i:s")));
 		}
-		
-		
+
 		$batchName = CsdbCustomerMonthYearRaw::where('id',$id)->pluck('batchName');
 		$batchYear = CsdbCustomerMonthYearRaw::where('batchID',$file->batchID)->pluck('batchYear');
 		$batchMonth = CsdbCustomerMonthYearRaw::where('batchID',$file->batchID)->pluck('batchMonth');
@@ -151,7 +150,8 @@ class CallerController extends BaseController {
 					'cleansingStatus' => Input::get('cleansingStatus'),
 					'addressValidity' => Input::get('addressValidity'),
 					'remarks' => Input::get('remarks'),
-					'close_at' => date("Y-m-d H:i:s")
+					'close_at' => date("Y-m-d H:i:s"),
+					'callerID' => Sentry::getUser()->id
 				 ));
 
 		$file = CsdbCustomerMonthYearRaw::where('id', '=' , Input::get('id'))->get()->first();
@@ -162,4 +162,32 @@ class CallerController extends BaseController {
 		return Redirect::back()->with( array('file'=> $file, 'batchName'=>$batchName, 'batchYear'=>$batchYear, 'batchMonth'=>$batchMonth, 'batchWeek'=>$batchWeek, 'msgSuccess'=>'The selected record is updated successfully.' ));		
 	}
 	
+	public function profile($userID)
+	{
+		$this->layout->content = View::make('caller.userProfile')
+		    ->with( 
+				array( 'user'=>Sentry::findUserById($userID) )
+			);
+	}	
+
+	public function storeProfile(){		
+		$userID = Sentry::getUser()->id;
+		$rules = array(					
+					'first_name' => 'required',
+					'last_name' => 'required',
+					'email' => array('required')
+					);
+		$validator = Validator::make(Input::all(),$rules);
+
+		if ($validator->fails()){
+			return Redirect::back()->with('msg', 'Please enter the required fields.')->withInput();
+		}
+
+		DB::table('users')
+		->where('id',$userID)
+		->update(array('first_name' => Input::get('first_name'), 'last_name' => Input::get('last_name'), 'email' => Input::get('email') ));
+
+		return Redirect::back()->with('msg-success', 'Your profile is updated successfully.');
+
+	}
 }

@@ -72,6 +72,14 @@
                             </div>
                         </div>
 
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a href="{{URL::route('viewSystemLog')}}" data-parent="#side_accordion" data-toggle="" class="accordion-toggle">
+                                <i class="icon-tasks"></i> System Log
+                                </a>
+                            </div>
+                        </div>
+
 
 					</div>
 

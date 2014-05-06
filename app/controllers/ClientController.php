@@ -1486,6 +1486,10 @@ class ClientController extends BaseController {
 		->update(array('first_name' => Input::get('first_name'), 'last_name' => Input::get('last_name'), 'email' => Input::get('email') ));
 
 		return Redirect::back()->with('msg-success', 'Your profile is updated successfully.');
-
 	}
+
+	public function viewSystemLog(){
+		$this->layout->content = View::make('clientAdmin.systemLog');		
+	}
+
 }

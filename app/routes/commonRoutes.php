@@ -50,5 +50,7 @@ route::group(array('prefix' => 'user','before'=>'auth|admin'),function(){
 
 	Route::get('profile/{id}',array('as' => 'Profile','uses'=>'ClientController@profile'))->where('id', '[0-9]+');
 	Route::post('storeprofile',array('as' => 'storeProfile','uses'=>'ClientController@storeProfile'));
+
+	Route::get('systemLog',array('as' => 'viewSystemLog','uses'=>'ClientController@viewSystemLog'));
 });
 
